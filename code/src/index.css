@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body {
   margin: 0;
-  padding: 20px;
-  font-family: sans-serif;
+  padding-right: 100px;
+  padding-left: 100px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App section {
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .App section {

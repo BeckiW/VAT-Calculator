@@ -57,17 +57,17 @@ handleIncVatChange = (event) => {
   }
 
 
-
-
   render() {
+
+    console.log(this.state.percentageVat)
     return (
       <div className="App">
 
        <h1>VAT Calculator</h1>
        <h3> The fastest way to calculate what VAT you will pay. </h3>
-       <h4> Calculate what the VAT will be (6, 12 or 25 percent) with our calculator. Select VAT rate and you will see what the sum will be excluding or including VAT.
+       <h4> Calculate what the VAT will be (0%, 6%, 12%, 25% or a custom amount) with our calculator. Select the VAT rate and you will see what the sum will be excluding and including VAT.
 
-       Fill in one of the amounts (including or excluding VAT) and you willsee what it means (excluding or including VAT).</h4>
+       Equally, fill in one of the amounts (including or excluding VAT) and you will see what it is excluding or including VAT.</h4>
 
       <form>
 
@@ -77,10 +77,11 @@ handleIncVatChange = (event) => {
         <div>
           <label htmlFor="vat25">25%?</label>
           <input
+          name ="vatRadio"
             id="vat25"
             type="radio"
-            value="25%"
-            checked={this.state.percentageVAT === 25}
+            value="25"
+            checked={this.state.percentageVat === 25}
             onChange={this.handleRadioChange}
           />
         </div>
@@ -89,10 +90,11 @@ handleIncVatChange = (event) => {
           <div>
             <label htmlFor="vat12">12%?</label>
             <input
+              name ="vatRadio"
               id="vat12"
               type="radio"
-              value="12%"
-              checked={this.state.percentageVAT === 12}
+              value="12"
+              checked={this.state.percentageVat === 12}
               onChange={this.handleRadioChange}
             />
           </div>
@@ -101,10 +103,11 @@ handleIncVatChange = (event) => {
         <div>
           <label htmlFor="vat6">6%?</label>
           <input
+            name ="vatRadio"
             id="vat6"
             type="radio"
-            value="6%"
-            checked={this.state.percentageVAT === 6}
+            value="6"
+            checked={this.state.percentageVat === 6}
             onChange={this.handleRadioChange}
              />
         </div>
@@ -112,23 +115,25 @@ handleIncVatChange = (event) => {
         <div>
           <label htmlFor="vatNone">None</label>
           <input
+            name ="vatRadio"
             id="vatNone"
             type="radio"
-            value="None"
-            checked={this.state.percentageVAT === "None"}
+            value="0"
+            checked={this.state.percentageVAT === 0}
             onChange={this.handleRadioChange}  />
         </div>
 
           <div >
             <label htmlFor="vatCustom">Custom</label>
             <input
+              name ="vatRadio"
               id="vatCustom"
               type="radio"
               value={`${this.state.customPercentage}`}
               checked={this.state.percentageVat === Number(`${this.state.customPercentage}`)}
               onChange={this.handleRadioChange}
               onClick={this.setCustomPercentage} />
-            <input
+        <input
               id="customPercentage"
               type="text"
               pattern="[0-9]*"
@@ -184,8 +189,6 @@ handleIncVatChange = (event) => {
 
       </form>
 
-      <p>Example calculatingex vat for 1000kr inc vat @ 25%: {incVatToExtVat(25, 1000)}</p>
-      <p>Example calculating inc vat for 600kr ex vat @ 6%: {exVatToIncVat(6, 600)}</p>
     </div>
 
 
